@@ -88,9 +88,9 @@ people!.score?.testName
 if let hasName = people?.score?.testName{
     if hasName == "park"{
         
-    }else  {
-        print("nillll")
     }
+}else {
+    print("nillllll")
 }
 
 var myscore: Int?
@@ -102,3 +102,243 @@ if myscore ?? 0 < 50 {
 ///////////////////////////////////////////////////////////////////////////////////
 
 
+//Collection Types
+//Array
+var someStrings = [String]()
+
+someStrings.append("aa")
+someStrings.append("bb")
+someStrings.append("CC")
+
+someStrings.remove(at: 1)
+print(someStrings)
+
+var removeIndex = 1
+if someStrings.count - 1 >= removeIndex{
+    someStrings.remove(at: removeIndex)
+}
+
+print(someStrings)
+
+//set
+var strings = Set<String>()
+strings.insert("aa")
+strings.insert("bb")
+strings.insert("cc")
+
+strings.remove("dd")
+
+
+strings.insert("aa")
+print(strings)
+
+var strings1 = Set<String>()
+strings1.insert("aa")
+strings1.insert("bb")
+strings1.insert("cc")
+strings1.insert("zz")
+
+var strings2 = Set<String>()
+strings2.insert("11")
+strings2.insert("22")
+strings2.insert("33")
+strings2.insert("zz")
+let union = strings1.union(strings2)
+print(union)
+
+let inter = strings1.intersection(strings2)
+print(inter)
+
+let symm = strings1.symmetricDifference(strings2)
+print(symm)
+
+let sub = strings1.subtracting(strings2)
+print(sub)
+
+
+//dictionary
+var sports = [String : Any]()
+sports["soccer"] = "korea"
+sports["baseball"] = 3
+sports["football"] = true
+
+print(sports)
+
+sports.count
+
+print(sports["soccer"]!)
+
+if let hasSoccer = sports["soccer"]{
+    print(hasSoccer)
+}else{
+    print("nil")
+}
+
+
+
+//For-in
+//Array
+var names = ["lee","kim","john","brain"]
+var ages = [5,6,2,7,5]
+
+for _ in names{
+}
+
+for element in names{
+    print(element + " sir")
+}
+for element in ages {
+    print(element + 10)
+}
+
+//Dictionary
+var peoples = ["john" : 5, "lee" : 10, "kim" : 7]
+for element in peoples{
+    print(element.key)
+    print(element.value)
+}
+for index in 0..<peoples.count{
+    print(index)
+}
+
+for index in (0..<peoples.count).reversed(){
+        print(index)
+}
+var someNumber = 7
+switch someNumber {
+case 5:
+    print("555")
+default:
+    print("default")
+}
+
+switch someNumber{
+case 5...10 :
+    print("5-10")
+case 11...15:
+    print("!!-15")
+default:
+    print("default")
+}
+func sume2(_ num1: Int, _ num2: Int) -> Int {
+    return num1 + num2
+}
+
+print(sume2(50,23))
+
+func sayHi() -> String{
+    return "hello"
+}
+var sayGreet = { () -> String in
+    return "Hello2"
+}
+
+sayHi()
+sayGreet()
+
+
+var name = ["apple", "lemon", "brown", "red", "band", "candy", "we"]
+
+func filterStirng(datas: [String], firstString: String) -> [String] {
+    var newDatas = [String]()
+    for index in 0..<datas.count{
+        if datas[index].first?.description == firstString{
+            newDatas.append(datas[index])
+        }
+    }
+    return newDatas
+}
+
+filterStirng(datas: name, firstString: "a")
+
+func filterStringClosure(datas: [String], closure: (String) -> Bool) -> [String]{
+    var newDatas = [String]()
+    for data in datas{
+        if closure(data) == true {
+            newDatas.append(data)
+        }
+    }
+    return newDatas
+}
+
+let filtered = filterStringClosure(datas: name) { (element) -> Bool in
+    if element.first?.description == "a" {
+        return true
+    }
+    return false
+}
+
+print(filtered)
+
+var findA: (String) -> Bool = { element in
+    if element.first?.description == "a" {
+        return true
+    }
+    return false
+}
+
+var findB: (String) -> Bool = {element in
+    if element.first?.description == "b"{
+        return true
+    }
+    return false
+}
+
+var stringLength5: (String) -> Bool = {element in
+    if element.count == 5{
+        return true
+    }
+    return false
+}
+
+filterStringClosure(datas: name, closure: findA)
+filterStringClosure(datas: name, closure: findB)
+filterStringClosure(datas: name, closure: stringLength5)
+
+
+func greetingClosure(name: String) -> () -> String{
+    return { return "h1 " + name }
+}
+
+greetingClosure(name: "minho")()
+
+enum currentPoint{
+    case current
+    case near
+    case other
+}
+
+enum ImageType{
+    case none
+    case jpg
+    case png
+    case gif
+}
+
+var imageType = ImageType.gif
+var image: ImageType = .none
+image = .jpg
+if imageType == .gif {
+    
+}else{
+    
+}
+
+
+enum MediaType{
+    case picture(width: String, height: String)
+    case movie(length: Int)
+}
+
+var media = MediaType.picture(width: "200", height: "300")
+media = .movie(length: 50)
+
+switch media {
+case .movie(length: let length):
+    print(length)
+case .picture(width: let width, height: let height) :
+    print(width)
+    print(height)
+default:
+    break
+}
