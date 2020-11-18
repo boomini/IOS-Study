@@ -339,6 +339,55 @@ case .movie(length: let length):
 case .picture(width: let width, height: let height) :
     print(width)
     print(height)
-default:
-    break
+}
+class SomeClass{
+    var firstScore = 10
+    var secondScore = 20
+    
+    var totalScore: Int{
+        get{
+            //totalscore가 결론적으로 가지게 되는 값.
+            return firstScore + secondScore
+        }
+        //set을 정의하지 않으면 읽기 전용이 된다.
+    }
+//    var totalScore1 = 0
+//    func totalScore() -> Int {
+//        totalScore1 = firstScore + secondScore
+//        return totalScore1
+//    }
+
+}
+
+var someClass = SomeClass()
+//set이 있어야만 값을 받아 올 수 있다.
+
+
+extension UIColor{
+
+}
+var titleColor: UIColor!
+var descriptionColor: UIColor!
+
+extension UIColor {
+    var mainRedColor: UIColor {
+        return UIColor(red: 240/256, green: 30/255, blue: 30/255, alpha: 1)
+    }
+    var subGreenColor: UIColor {
+        return UIColor(red: 50/255, green: 250/255, blue: 30/255, alpha: 1)
+    }
+}
+titleColor = UIColor().mainRedColor
+descriptionColor = UIColor().subGreenColor
+
+class MyClass: UIViewController, UITableViewDataSource{
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return 5
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        return UITableViewCell()
+    }
+    
+    
 }
