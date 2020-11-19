@@ -24,7 +24,7 @@
             </objects>
             <point key="canvasLocation" x="-849" y="159"/>
         </scene>
-        <!--Item 1-->
+        <!--skyblue-->
         <scene sceneID="TTZ-Ry-oIV">
             <objects>
                 <viewController id="AoY-Rq-Dma" sceneMemberID="viewController">
@@ -34,7 +34,7 @@
                         <viewLayoutGuide key="safeArea" id="Df5-XB-UsM"/>
                         <color key="backgroundColor" systemColor="systemTealColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Item 1" id="PoV-Wh-E7R"/>
+                    <tabBarItem key="tabBarItem" title="skyblue" id="PoV-Wh-E7R"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KNa-nE-GFk" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
