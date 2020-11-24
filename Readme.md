@@ -2,7 +2,7 @@
 ios study 내용을 정리해둔 repository
 
 
-### 1. [swift 문법 총정리](https://boomini.github.io/categories/#ios)
+### 1. [Swift 문법 총정리](https://boomini.github.io/categories/#ios)
 ### 2. Quick Guide
 1. [ViewController_LifeCycle](https://github.com/boomini/IOS-Study/tree/master/LifeCycleVC)
 2. [Struct vs Class](https://github.com/boomini/IOS-Study/tree/master/StructVsClass)
