@@ -1,7 +1,12 @@
 ## IOS Study repository
-[swift 문법 총정리](https://boomini.github.io/categories/#ios)  
+ios study 내용을 정리해둔 repository
 
-### Quick Guide
+
+### 1. [swift 문법 총정리](https://boomini.github.io/categories/#ios)  
+
+
+### 2. Quick Guide
+***
 1. [ViewController_LifeCycle](https://github.com/boomini/IOS-Study/tree/master/LifeCycleVC)
 2. [Struct vs Class](https://github.com/boomini/IOS-Study/tree/master/StructVsClass)
 3. [TabBarController](https://github.com/boomini/IOS-Study/tree/master/Tabbar_StoryBoard)
@@ -19,15 +24,12 @@
 15. AutoLayout
 16. [CollectionView](https://github.com/boomini/IOS-Study/tree/master/Q_CollectionView)  
 
-### App 만들기
-1. [StopWatch](https://github.com/boomini/IOS-Study/tree/master/StopWatch)  
+### 3. App 만들기
+***
+1. [StopWatch](https://github.com/boomini/IOS-Study/tree/master/StopWatch)    
 
 
 
 
-
-
-
-
-### Reference
+### 4. Reference
 인프런강의 ios12 앱 개발 퍼펙트 가이드
