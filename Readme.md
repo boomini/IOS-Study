@@ -23,6 +23,7 @@ ios study 내용을 정리해둔 repository
 
 ### 3. App 만들기
 1. [StopWatch](https://github.com/boomini/IOS-Study/tree/master/StopWatch)    
+2. [Search Bar](https://github.com/boomini/IOS-Study/tree/master/Search_1)
 
 
 
