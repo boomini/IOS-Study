@@ -27,6 +27,7 @@ class SignUpViewController: UIViewController {
         
         if let url = URL(string: "http://localhost:3000/loginUsers"){
             var request = URLRequest.init(url: url )
+            //get방식 이외의 method는 URLRequest에 별도로 지정을 해주어야 한다.
             
             request.httpMethod = "POST"
             request.httpBody = param.queryString.data(using: .utf8)

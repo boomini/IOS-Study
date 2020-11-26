@@ -30,6 +30,8 @@ class User{
 //}
 //modeling
 struct LoginUser: Codable {
+    // Decodable & Encodable
+    //codable이라는 프로토콜이 추가되면서 json처리를 손쉽게 해준다.
     init() {
         name = ""
         password = ""
