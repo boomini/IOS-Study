@@ -82,7 +82,11 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="JOf-aM-brc">
-                        <barButtonItem key="leftBarButtonItem" title="Item" id="b3F-1p-Tae"/>
+                        <barButtonItem key="leftBarButtonItem" title="Edit" id="b3F-1p-Tae">
+                            <connections>
+                                <action selector="doEdit:" destination="BYZ-38-t0r" id="Ds1-AU-e4N"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="cvG-Lz-hq8">
                             <color key="tintColor" systemColor="systemRedColor"/>
                             <connections>
@@ -106,12 +110,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q4c-vK-vE5">
-                                <rect key="frame" x="10" y="98" width="32" height="34"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="oRZ-ax-Ro8">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="defaultPhoto" translatesAutoresizingMaskIntoConstraints="NO" id="oRZ-ax-Ro8">
                                 <rect key="frame" x="10" y="142" width="394" height="394"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="oRZ-ax-Ro8" secondAttribute="height" id="zv1-Gh-4AL"/>
@@ -125,15 +124,26 @@
                                     <constraint firstAttribute="width" constant="150" id="iUk-wl-1en"/>
                                 </constraints>
                             </view>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="q4c-vK-vE5">
+                                <rect key="frame" x="10" y="98" width="394" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <connections>
+                                    <action selector="didChanged:" destination="YCu-tb-Tqg" eventType="editingChanged" id="pmv-6t-Jvn"/>
+                                </connections>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="9zn-sU-uyF"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="q4c-vK-vE5" firstAttribute="leading" secondItem="9zn-sU-uyF" secondAttribute="leading" constant="10" id="2CR-X3-AdO"/>
+                            <constraint firstItem="9zn-sU-uyF" firstAttribute="trailing" secondItem="q4c-vK-vE5" secondAttribute="trailing" constant="10" id="EmK-we-Jkc"/>
                             <constraint firstItem="vgx-kV-0Bc" firstAttribute="centerX" secondItem="pQd-DH-b68" secondAttribute="centerX" id="KqQ-cD-A4b"/>
                             <constraint firstItem="oRZ-ax-Ro8" firstAttribute="top" secondItem="q4c-vK-vE5" secondAttribute="bottom" constant="10" id="OKM-k9-an9"/>
                             <constraint firstItem="vgx-kV-0Bc" firstAttribute="top" secondItem="oRZ-ax-Ro8" secondAttribute="bottom" constant="10" id="ZKw-HU-MaJ"/>
+                            <constraint firstItem="q4c-vK-vE5" firstAttribute="top" secondItem="9zn-sU-uyF" secondAttribute="top" constant="10" id="cF2-xw-6pB"/>
                             <constraint firstItem="9zn-sU-uyF" firstAttribute="trailing" secondItem="oRZ-ax-Ro8" secondAttribute="trailing" constant="10" id="mPS-6z-j5o"/>
+                            <constraint firstItem="oRZ-ax-Ro8" firstAttribute="top" secondItem="q4c-vK-vE5" secondAttribute="bottom" constant="10" id="o1u-M5-dzQ"/>
                             <constraint firstItem="oRZ-ax-Ro8" firstAttribute="leading" secondItem="9zn-sU-uyF" secondAttribute="leading" constant="10" id="rCl-jj-C7z"/>
                             <constraint firstItem="q4c-vK-vE5" firstAttribute="top" secondItem="9zn-sU-uyF" secondAttribute="top" constant="10" id="vYl-LK-dBd"/>
                         </constraints>
@@ -144,14 +154,23 @@
                                 <action selector="closeView:" destination="YCu-tb-Tqg" id="Azv-FS-oXh"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="Hgb-bj-WF7">
+                            <color key="tintColor" systemColor="systemPinkColor"/>
+                            <connections>
+                                <action selector="saveMeal:" destination="YCu-tb-Tqg" id="htO-7Z-5do"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="mealImageView" destination="oRZ-ax-Ro8" id="JKx-3r-KcE"/>
                         <outlet property="nameField" destination="q4c-vK-vE5" id="oMc-v1-7mp"/>
                         <outlet property="ratingView" destination="vgx-kV-0Bc" id="QIy-i4-9Ts"/>
+                        <outlet property="saveButton" destination="Hgb-bj-WF7" id="OV6-H1-8BN"/>
+                        <segue destination="N7a-BE-v9Q" kind="unwind" identifier="toMealList" unwindAction="unwindToMealListWithSender:" id="ves-9t-aAL"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Qcl-Kv-496" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+                <exit id="N7a-BE-v9Q" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2201" y="88"/>
         </scene>
@@ -196,8 +215,12 @@
         <segue reference="Cqb-2s-Ojc"/>
     </inferredMetricsTieBreakers>
     <resources>
+        <image name="defaultPhoto" width="178" height="178"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemPinkColor">
+            <color red="1" green="0.17647058823529413" blue="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

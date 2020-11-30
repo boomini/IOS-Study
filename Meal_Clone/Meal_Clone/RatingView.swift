@@ -6,12 +6,17 @@
 //
 
 import UIKit
-
+protocol RatingViewDelegate {
+    func ratingStatusChanged()
+}
 class RatingView: UIStackView {
-
+    var isEditMode = false
+    
+    var delegate: RatingViewDelegate?
     private var ratingButtons: [UIButton] = []
     public var rating = 0{
         didSet{
+            delegate?.ratingStatusChanged()
             updateButtonsSelectionState()
         }
     }
@@ -27,15 +32,19 @@ class RatingView: UIStackView {
     private func setupButtons(){
         self.spacing = 0
         
+        
         let filledStar = UIImage(named: "filledStar")
         let emptyStar = UIImage(named: "emptyStar")
         let highlightedStar = UIImage(named: "highlightedStar")
         
-        for _ in 0..<5{
+        for index in 0..<5{
             let button = UIButton()
             
             button.widthAnchor.constraint(equalToConstant: 30).isActive = true
             button.heightAnchor.constraint(equalToConstant: 30).isActive = true
+             
+            button.tag = index + 1
+            button.addTarget(self, action: #selector(selectedStar), for: .touchUpInside)
             button.setImage(filledStar, for: .selected)
             button.setImage(emptyStar, for: .normal)
             button.setImage(highlightedStar, for: .highlighted)
@@ -43,6 +52,14 @@ class RatingView: UIStackView {
             self.addArrangedSubview(button)
             ratingButtons.append(button)
         }
+    }
+    
+    @objc func selectedStar(sender: UIButton){
+        print("selected star \(sender.tag)")
+        guard self.isEditMode else{
+            return
+        }
+        rating = sender.tag
     }
     
     func updateButtonsSelectionState(){
